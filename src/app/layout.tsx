@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "PATH54 | Athlete-led African Venture Capital",
   description:
     "PATH54 brings together leading African and African-heritage athletes to invest in founders shaping Africa's future.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

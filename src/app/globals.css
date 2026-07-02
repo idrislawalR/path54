@@ -97,6 +97,97 @@ body {
   border-color: var(--gold);
 }
 
+.arrow-icon {
+  width: 15px;
+  height: 15px;
+  background-color: currentColor;
+  mask: url("/assets/icon-arrow.svg") center / contain no-repeat;
+  -webkit-mask: url("/assets/icon-arrow.svg") center / contain no-repeat;
+}
+
+.ticker-track {
+  animation: ticker-scroll 34s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.hero-image-entrance {
+  animation: hero-image-rise 1800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.slow-scale {
+  animation: slow-scale 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hover-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease;
+}
+
+.hover-reveal:hover .hover-arrow,
+.hover-reveal:focus-within .hover-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes hero-image-rise {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slow-scale {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.045);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .ticker-track {
+    animation: none;
+  }
+}
+
 @media (max-width: 640px) {
   .btn-base {
     width: 100%;

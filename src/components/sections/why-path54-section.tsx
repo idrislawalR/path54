@@ -1,3 +1,5 @@
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
+
 const pillars = [
   {
     title: "Capital",
@@ -17,17 +19,18 @@ export function WhyPath54Section() {
   return (
     <section id="why" className="bg-background py-[clamp(80px,9vw,132px)]">
       <div className="container-shell">
-        <div className="text-center">
+        <Reveal className="text-center">
           <p className="text-[12px] font-normal uppercase leading-[15px] tracking-[3px] text-[#AA8147]">
             Why PATH54
           </p>
           <h2 className="display mx-auto mt-9 max-w-[841px] text-[clamp(3.75rem,5.14vw,74px)] leading-[0.894] text-[#F3F0EB]">
             Three pillars. One direction.
           </h2>
-        </div>
-        <div className="mt-20 grid border-l border-t border-[#2A2A2A] md:grid-cols-3">
+        </Reveal>
+        <RevealGroup className="mt-20 grid border-l border-t border-[#2A2A2A] md:grid-cols-3" stagger={0.14}>
           {pillars.map((pillar, index) => (
-            <article
+            <RevealItem
+              as="article"
               key={pillar.title}
               className="min-h-[311px] border-b border-r border-[#2A2A2A] p-12"
             >
@@ -41,9 +44,9 @@ export function WhyPath54Section() {
               <p className="mt-7 max-w-[366px] text-[14px] font-normal leading-[22.75px] text-[#C0C5CE]">
                 {pillar.copy}
               </p>
-            </article>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );

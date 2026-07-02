@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { Reveal } from "@/components/ui/reveal";
 
 export function MissionSection() {
   return (
     <section id="mission" className="bg-background py-[clamp(80px,9vw,130px)]">
       <div className="container-shell grid items-center gap-12 lg:grid-cols-[1fr_620px]">
-        <div>
+        <Reveal>
           <p className="text-[12px] font-normal uppercase leading-[15px] tracking-[3px] text-[#AA8147]">
             The mission
           </p>
@@ -20,16 +21,17 @@ export function MissionSection() {
             are the catalyst. Innovation, entrepreneurship and long-term impact
             are the destination.
           </p>
-        </div>
-        <div className="relative aspect-square overflow-hidden bg-cream">
+        </Reveal>
+        <Reveal className="relative aspect-square overflow-hidden bg-cream" delay={0.16} y={34}>
           <Image
             src="/assets/mission-legacy.png"
             alt="PATH54 legacy campaign image"
             fill
+            unoptimized
             sizes="(max-width: 1024px) 92vw, 540px"
             className="object-cover"
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

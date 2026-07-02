@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ui/button-link";
 
 const navItems = [
@@ -11,8 +14,27 @@ const navItems = [
 ];
 
 export function SiteHeader() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateScrollState = () => {
+      setIsScrolled(window.scrollY > 18);
+    };
+
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-30 border-b hairline bg-background/95 backdrop-blur-xl">
+    <header
+      className={`sticky top-0 z-30 border-b hairline backdrop-blur-xl transition-[background-color,box-shadow,border-color] duration-500 ease-out ${
+        isScrolled
+          ? "bg-background/95 shadow-[0_18px_60px_rgba(0,0,0,0.28)]"
+          : "bg-background/62"
+      }`}
+    >
       <div className="container-shell flex h-20 items-center justify-between gap-6">
         <Link href="/" className="flex items-center" aria-label="PATH54 home">
           <Image
@@ -29,7 +51,7 @@ export function SiteHeader() {
           aria-label="Main navigation"
         >
           {navItems.map(([item, href]) => (
-            <Link key={item} href={href} className="hover:text-cream">
+            <Link key={item} href={href} className="transition-colors duration-300 hover:text-cream">
               {item}
             </Link>
           ))}
