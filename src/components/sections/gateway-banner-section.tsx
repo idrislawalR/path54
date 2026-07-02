@@ -3,15 +3,16 @@ import { Reveal } from "@/components/ui/reveal";
 
 export function GatewayBannerSection() {
   return (
-    <section className="relative aspect-[1440/594] min-h-[220px] overflow-hidden bg-background sm:min-h-[300px] lg:min-h-[360px]">
-      <Reveal className="absolute inset-0" y={20}>
+    <section className="overflow-hidden bg-background">
+      <Reveal y={20}>
         <Image
           src="/assets/gateway-banner.png"
           alt="Sport is the gateway. Innovation is the destination."
-          fill
+          width={1440}
+          height={594}
           unoptimized
           sizes="100vw"
-          className="slow-scale object-cover"
+          className="h-auto w-full md:gateway-motion"
         />
       </Reveal>
     </section>

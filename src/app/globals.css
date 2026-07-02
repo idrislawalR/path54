@@ -123,6 +123,13 @@ body {
   will-change: transform;
 }
 
+@media (min-width: 768px) {
+  .gateway-motion {
+    animation: slow-scale 18s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+}
+
 .hover-arrow {
   opacity: 0;
   transform: translateX(-8px);

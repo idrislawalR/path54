@@ -11,7 +11,7 @@ export function FinalCtaSection() {
         alt=""
         fill
         sizes="100vw"
-        className="slow-scale pointer-events-none object-cover object-center opacity-[0.08] mix-blend-screen"
+        className="slow-scale pointer-events-none object-cover object-center opacity-[0.13] mix-blend-screen brightness-125 contrast-110"
       />
       <div className="container-shell relative z-10">
         <Reveal y={18}>
