@@ -28,7 +28,7 @@ export function HeroSection() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.78)_36%,rgba(5,5,5,0.28)_72%,rgba(5,5,5,0)_100%)]" />
         <div className="container-shell relative z-10 flex min-h-[720px] items-center py-20 md:min-h-[851px]">
-          <div className="max-w-[607px]">
+          <div className="max-w-[609px]">
             <Reveal className="mb-7 flex items-center gap-5 sm:gap-6" delay={0.1} y={16}>
               <span className="h-px w-12 shrink-0 bg-gold sm:w-16" />
               <p className="eyebrow text-[10px] leading-[15px] tracking-[3px] sm:text-[12px]">
@@ -51,27 +51,31 @@ export function HeroSection() {
                 shaping Africa&apos;s future.
               </p>
             </Reveal>
-            <Reveal className="mt-10 flex flex-col gap-4 sm:flex-row" delay={0.62} y={20}>
-              <ButtonLink href="#collective">
+            <Reveal
+              className="hero-cta-row mt-10 grid grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] gap-2 sm:max-w-[609px] sm:gap-4"
+              delay={0.62}
+              y={20}
+            >
+              <ButtonLink href="#collective" className="hero-cta">
                 Become a founding member <ArrowIcon />
               </ButtonLink>
-              <ButtonLink href="#portfolio" variant="secondary">
+              <ButtonLink href="#portfolio" variant="secondary" className="hero-cta">
                 Apply for funding
               </ButtonLink>
             </Reveal>
           </div>
         </div>
       </div>
-      <div className="relative z-10 border-t hairline bg-background">
-        <div className="flex min-h-20 overflow-hidden whitespace-nowrap">
+      <div className="relative z-10 border-y border-[#2A2A2A] bg-background">
+        <div className="flex h-[54px] overflow-hidden whitespace-nowrap py-4">
           <div className="ticker-track flex min-w-max items-center">
             {[...tickerItems, ...tickerItems].map((item, index) => (
               <span
                 key={`${item}-${index}`}
-                className="display flex items-center px-10 text-sm tracking-[0.28em] text-cream/70"
+                className="display flex items-center px-8 text-[13px] leading-[19.5px] tracking-[2.86px] text-cream/70"
               >
                 {item}
-                <span className="ml-10 font-sans text-gold">&middot;</span>
+                <span className="ml-8 font-sans text-gold">&middot;</span>
               </span>
             ))}
           </div>

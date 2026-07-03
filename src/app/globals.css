@@ -33,12 +33,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-open-sans), "Open Sans", Arial, Helvetica, sans-serif;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -49,6 +51,7 @@ body {
 .container-shell {
   width: min(1344px, calc(100% - clamp(32px, 6.67vw, 96px)));
   margin-inline: auto;
+  min-width: 0;
 }
 
 .section-y {
@@ -86,7 +89,10 @@ body {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.28em;
+  max-width: 100%;
+  min-width: 0;
   text-transform: uppercase;
+  white-space: nowrap;
   transition:
     background-color 180ms ease,
     color 180ms ease,
@@ -142,6 +148,14 @@ body {
 .hover-reveal:focus-within .hover-arrow {
   opacity: 1;
   transform: translateX(0);
+}
+
+.hero-cta {
+  flex: 0 1 auto;
+  min-width: 0;
+  width: 100%;
+  padding-inline: clamp(16px, 2.22vw, 32px);
+  letter-spacing: clamp(0.12em, 0.85vw, 0.28em);
 }
 
 @keyframes ticker-scroll {
@@ -202,5 +216,20 @@ body {
     font-size: 11px;
     letter-spacing: 0.18em;
     text-align: center;
+  }
+
+  .hero-cta {
+    flex: 1 1 0;
+    min-height: 48px;
+    gap: clamp(6px, 2vw, 10px);
+    padding-inline: clamp(8px, 3vw, 16px);
+    font-size: clamp(7px, 2.25vw, 11px);
+    letter-spacing: clamp(0.02em, 0.55vw, 0.16em);
+  }
+
+  .hero-cta .arrow-icon {
+    width: clamp(10px, 3vw, 15px);
+    height: clamp(10px, 3vw, 15px);
+    flex: 0 0 auto;
   }
 }

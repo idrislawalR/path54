@@ -12,7 +12,7 @@ export function GatewayBannerSection() {
             fill
             unoptimized
             sizes="100vw"
-            className="object-cover object-bottom md:gateway-motion"
+            className="object-cover object-left-bottom"
           />
           <div className="absolute inset-0 bg-[#1A1A1A]/50" />
           <div className="absolute inset-x-0 bottom-[clamp(28px,6.5vw,92px)] z-10">
