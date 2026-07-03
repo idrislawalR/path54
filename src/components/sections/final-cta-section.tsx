@@ -7,11 +7,12 @@ export function FinalCtaSection() {
   return (
     <section className="relative overflow-hidden border-y hairline bg-[radial-gradient(circle_at_50%_20%,rgba(244,241,235,0.08),transparent_28%),#111] py-28 text-center md:py-36">
       <Image
-        src="/assets/hero-athlete.png"
+        src="/assets/next-chapter-bg.png"
         alt=""
         fill
+        unoptimized
         sizes="100vw"
-        className="slow-scale pointer-events-none object-cover object-center opacity-[0.13] mix-blend-screen brightness-125 contrast-110"
+        className="slow-scale pointer-events-none object-cover object-center"
       />
       <div className="container-shell relative z-10">
         <Reveal y={18}>

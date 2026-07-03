@@ -1,16 +1,22 @@
 import Image from "next/image";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 
-const collectiveRows = [
+const collectiveCards = [
   {
-    src: "/assets/collective-top-row.png",
-    alt: "Founding members and advisors in the PATH54 collective",
-    aspect: "aspect-[1344/738]",
+    src: "/assets/collective-card-collective.png",
+    alt: "Founding members in the PATH54 collective",
   },
   {
-    src: "/assets/collective-bottom-row.png",
-    alt: "The founders tile beside the world-class athletes and founders statement",
-    aspect: "aspect-[1344/543]",
+    src: "/assets/collective-card-network.png",
+    alt: "Advisors and partners in the PATH54 network",
+  },
+  {
+    src: "/assets/collective-card-founders.png",
+    alt: "Next generation founders overlooking a city",
+  },
+  {
+    src: "/assets/collective-card-statement.png",
+    alt: "World-class athletes, world-changing founders",
   },
 ];
 
@@ -27,15 +33,15 @@ export function TheCollectiveSection() {
           </h2>
         </Reveal>
 
-        <RevealGroup className="mt-12 space-y-4 md:mt-16" stagger={0.16}>
-          {collectiveRows.map(({ src, alt, aspect }) => (
-            <RevealItem key={src} className={`relative w-full overflow-hidden ${aspect}`} y={36}>
+        <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 md:mt-16" stagger={0.16}>
+          {collectiveCards.map(({ src, alt }) => (
+            <RevealItem key={src} className="relative aspect-[388/426] w-full overflow-hidden" y={36}>
               <Image
                 src={src}
                 alt={alt}
                 fill
                 unoptimized
-                sizes="(max-width: 1440px) 93vw, 1344px"
+                sizes="(max-width: 640px) 93vw, (max-width: 1440px) 46vw, 672px"
                 className="object-cover transition-transform duration-700 ease-out hover:scale-[1.015]"
               />
             </RevealItem>
