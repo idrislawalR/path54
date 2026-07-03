@@ -16,27 +16,26 @@ const tickerItems = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b hairline bg-background">
-      <div className="relative min-h-[720px] overflow-hidden md:min-h-[851px]">
+    <section className="relative flex h-[calc(100dvh+130px)] flex-col overflow-hidden border-b hairline bg-background">
+      <div className="relative min-h-0 flex-1 overflow-hidden">
         <Image
           src="/assets/hero-athlete.png"
           alt=""
           fill
           preload
           sizes="100vw"
-          className="hero-image-entrance object-cover object-[62%_center] md:object-center"
+          className="hero-image-entrance object-cover object-[top_50px_0px] md:object-[30%_top]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.78)_36%,rgba(5,5,5,0.28)_72%,rgba(5,5,5,0)_100%)]" />
-        <div className="container-shell relative z-10 flex min-h-[720px] items-center py-20 md:min-h-[851px]">
+        <div className="container-shell relative z-10 flex h-full items-center py-[clamp(20px,5vh,64px)]">
           <div className="max-w-[609px]">
             <Reveal className="mb-7 flex items-center gap-5 sm:gap-6" delay={0.1} y={16}>
-              <span className="h-px w-12 shrink-0 bg-gold sm:w-16" />
-              <p className="eyebrow text-[10px] leading-[15px] tracking-[3px] sm:text-[12px]">
+              <span className="h-px w-12 shrink-0 bg-gold sm:w-12" />
+              <p className="eyebrow  tracking-[3px] text-[0.625rem]">
                 Est. 2026 &middot; Athlete-led African venture capital
               </p>
             </Reveal>
             <Reveal delay={0.22} duration={0.95} y={42}>
-              <h1 className="display text-[clamp(4.25rem,18vw,145px)] leading-[0.92] text-[#F3F0EB] md:leading-[130px]">
+              <h1 className="display text-[clamp(2.75rem,min(15vw,14vh),145px)] leading-[0.92] text-[#F3F0EB]">
                 Investing
                 <br />
                 in Africa&apos;s
@@ -67,7 +66,7 @@ export function HeroSection() {
         </div>
       </div>
       <div className="relative z-10 border-y border-[#2A2A2A] bg-background">
-        <div className="flex h-[54px] overflow-hidden whitespace-nowrap py-4">
+        <div className="flex h-[54px] items-center overflow-hidden whitespace-nowrap">
           <div className="ticker-track flex min-w-max items-center">
             {[...tickerItems, ...tickerItems].map((item, index) => (
               <span

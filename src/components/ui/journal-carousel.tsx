@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 type JournalCard = {
@@ -27,14 +27,13 @@ function chunkCards(cards: JournalCard[]) {
 
 export function JournalCarousel({ cards }: JournalCarouselProps) {
   const [activePage, setActivePage] = useState(0);
-  const reduceMotion = useReducedMotion();
   const pages = chunkCards(cards);
 
   return (
     <motion.div
       className="mt-16"
-      initial={reduceMotion ? false : "hidden"}
-      whileInView={reduceMotion ? undefined : "visible"}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={{
         hidden: {},

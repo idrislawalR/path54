@@ -67,7 +67,7 @@ body {
 
 .eyebrow {
   color: var(--gold);
-  font-size: 12px;
+  font-size: 0.625rem;
   font-weight: 400;
   letter-spacing: 0.46em;
   text-transform: uppercase;
@@ -187,25 +187,6 @@ body {
 
   to {
     transform: scale(1.045);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.001ms !important;
-  }
-
-  .ticker-track {
-    animation: none;
   }
 }
 

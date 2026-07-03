@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 type RevealProps = ComponentPropsWithoutRef<typeof motion.div> & {
@@ -20,16 +20,6 @@ export function Reveal({
   once = true,
   ...props
 }: RevealProps) {
-  const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) {
-    return (
-      <div className={className}>
-        {children}
-      </div>
-    );
-  }
-
   return (
     <motion.div
       className={className}
@@ -55,12 +45,6 @@ export function RevealGroup({
   stagger = 0.12,
   ...props
 }: RevealGroupProps) {
-  const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
   const variants: Variants = {
     hidden: {},
     visible: {
@@ -91,13 +75,7 @@ type RevealItemProps = ComponentPropsWithoutRef<typeof motion.div> & {
 };
 
 export function RevealItem({ children, className, as = "div", y = 24, ...props }: RevealItemProps) {
-  const reduceMotion = useReducedMotion();
   const Component = as === "article" ? motion.article : motion.div;
-
-  if (reduceMotion) {
-    const StaticComponent = as;
-    return <StaticComponent className={className}>{children}</StaticComponent>;
-  }
 
   return (
     <Component

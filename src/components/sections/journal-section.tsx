@@ -42,10 +42,10 @@ const journalCards = [
 
 export function JournalSection() {
   return (
-    <section id="journal" className="bg-background py-[clamp(88px,9.7vw,140px)]">
+    <section id="journal" className="bg-background py-[clamp(88px,9.7vw,140px)] border-t hairline">
       <div className="container-shell">
         <Reveal>
-          <p className="text-[12px] font-normal uppercase leading-[15px] tracking-[3px] text-[#AA8147]">
+          <p className="text-[12px] font-normal uppercase leading-[15px] tracking-[3px] text-[#AA8147] ">
             Journal
           </p>
           <h2 className="display mt-6 max-w-[395px] text-[clamp(4rem,18vw,80.22px)] leading-[0.9] text-[#F3F0EB] lg:leading-[72.2px]">
