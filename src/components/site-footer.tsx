@@ -18,6 +18,13 @@ const involvementLinks = [
   "Careers",
 ];
 
+const socialLinks = {
+  Instagram: "https://www.instagram.com/path54vc",
+  X: "#",
+  LinkedIn: "https://www.linkedin.com/company/path54",
+  YouTube: "#",
+};
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-[#1f1f1f] bg-background py-16 md:py-20">
@@ -67,9 +74,9 @@ export function SiteFooter() {
         <div className="mt-16 flex flex-col justify-between gap-6 border-t border-[#2A2A2A] pt-8 text-[12px] font-medium leading-[18px] text-[#8E939C] md:flex-row">
           <p>&copy; 2026 PATH54. All rights reserved.</p>
           <div className="flex flex-wrap gap-6 text-[12px] uppercase leading-[18px] tracking-[2.4px] md:gap-8">
-            {["Instagram", "X", "LinkedIn", "YouTube"].map((item) => (
-              <Link key={item} href="#" className="transition-colors duration-300 hover:text-[#F3F0EB] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#AA8147]">
-                {item}
+            {Object.entries(socialLinks).map(([name, url]) => (
+              <Link key={name} href={url} className="transition-colors duration-300 hover:text-[#F3F0EB] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#AA8147]">
+                {name}
               </Link>
             ))}
           </div>

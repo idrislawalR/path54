@@ -24,7 +24,7 @@ export function HeroSection() {
           fill
           preload
           sizes="100vw"
-          className="hero-image-entrance object-cover object-[top_50px_0px] md:object-[30%_top]"
+          className="hero-image-entrance object-cover object-[top_50px_0px] brightness-[1.35] contrast-[1.05] md:object-[30%_top]"
         />
         <div className="container-shell relative z-10 flex h-full items-center py-[clamp(20px,5vh,64px)]">
           <div className="max-w-[609px]">
