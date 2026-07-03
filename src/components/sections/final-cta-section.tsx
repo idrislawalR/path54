@@ -12,7 +12,7 @@ export function FinalCtaSection() {
         fill
         unoptimized
         sizes="100vw"
-        className="slow-scale pointer-events-none object-cover object-center brightness-[1.65] contrast-[1.08]"
+        className="slow-scale pointer-events-none object-cover object-center md:object-[50%_bottom] brightness-[1.65] contrast-[1.08]"
       />
       <div className="container-shell relative z-10">
         <Reveal y={18}>
