@@ -120,13 +120,18 @@ body {
   animation-play-state: paused;
 }
 
-.journal-track {
-  animation: journal-scroll 52s linear infinite;
-  will-change: transform;
+.journal-viewport {
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
 }
 
-.journal-card {
-  width: 86vw;
+.journal-viewport:active {
+  cursor: grabbing;
+}
+
+.journal-page {
+  width: calc(100% - clamp(28px, 4vw, 56px));
 }
 
 .hero-image-entrance {
@@ -144,9 +149,6 @@ body {
     will-change: transform;
   }
 
-  .journal-card {
-    width: calc(min(1344px, calc(100vw - clamp(32px, 6.67vw, 96px))) / 3);
-  }
 }
 
 .hover-arrow {
@@ -172,16 +174,6 @@ body {
 }
 
 @keyframes ticker-scroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes journal-scroll {
   from {
     transform: translateX(0);
   }
@@ -227,8 +219,7 @@ body {
     transition-duration: 0.001ms !important;
   }
 
-  .ticker-track,
-  .journal-track {
+  .ticker-track {
     animation: none;
   }
 }
@@ -244,7 +235,7 @@ body {
 
   .hero-cta {
     flex: 1 1 0;
-    min-height: 48px;
+    min-height: 44px;
     gap: clamp(6px, 2vw, 10px);
     padding-inline: clamp(8px, 3vw, 16px);
     font-size: clamp(7px, 2.25vw, 11px);
