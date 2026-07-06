@@ -73,20 +73,31 @@ export function JournalCarousel({ cards }: JournalCarouselProps) {
   const [activePage, setActivePage] = useState(0);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
 
-  const goToPage = useCallback((pageIndex: number, behavior: ScrollBehavior = "smooth") => {
-    const viewport = viewportRef.current;
-    const page = viewport?.querySelector<HTMLElement>(
+  const getPageTarget = useCallback((viewport: HTMLDivElement, pageIndex: number) => {
+    const firstPage = viewport.querySelector<HTMLElement>("[data-journal-page='0']");
+    const page = viewport.querySelector<HTMLElement>(
       `[data-journal-page="${pageIndex}"]`,
     );
 
-    if (!viewport || !page) {
+    if (!firstPage || !page) {
+      return null;
+    }
+
+    return page.offsetLeft - firstPage.offsetLeft;
+  }, []);
+
+  const goToPage = useCallback((pageIndex: number, behavior: ScrollBehavior = "smooth") => {
+    const viewport = viewportRef.current;
+    const target = viewport ? getPageTarget(viewport, pageIndex) : null;
+
+    if (!viewport || target === null) {
       return;
     }
 
     activePageRef.current = pageIndex;
     setActivePage(pageIndex);
-    viewport.scrollTo({ left: page.offsetLeft, behavior });
-  }, []);
+    viewport.scrollTo({ left: target, behavior });
+  }, [getPageTarget]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -119,26 +130,22 @@ export function JournalCarousel({ cards }: JournalCarouselProps) {
     }
 
     const nextActivePage = pages.reduce((closestPage, _, pageIndex) => {
-      const page = viewport.querySelector<HTMLElement>(
-        `[data-journal-page="${pageIndex}"]`,
-      );
-      const closest = viewport.querySelector<HTMLElement>(
-        `[data-journal-page="${closestPage}"]`,
-      );
+      const pageTarget = getPageTarget(viewport, pageIndex);
+      const closestTarget = getPageTarget(viewport, closestPage);
 
-      if (!page || !closest) {
+      if (pageTarget === null || closestTarget === null) {
         return closestPage;
       }
 
-      const pageDistance = Math.abs(page.offsetLeft - viewport.scrollLeft);
-      const closestDistance = Math.abs(closest.offsetLeft - viewport.scrollLeft);
+      const pageDistance = Math.abs(pageTarget - viewport.scrollLeft);
+      const closestDistance = Math.abs(closestTarget - viewport.scrollLeft);
 
       return pageDistance < closestDistance ? pageIndex : closestPage;
     }, 0);
 
     activePageRef.current = nextActivePage;
     setActivePage(nextActivePage);
-  }, [pages]);
+  }, [getPageTarget, pages]);
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
     const viewport = viewportRef.current;

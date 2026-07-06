@@ -71,10 +71,9 @@ export function HeroSection() {
             {[...tickerItems, ...tickerItems].map((item, index) => (
               <span
                 key={`${item}-${index}`}
-                className="display flex items-center px-8 text-[13px] leading-[19.5px] tracking-[2.86px] text-cream/70"
+                className="ticker-item display text-[13px] leading-[19.5px] tracking-[2.86px] text-cream/70"
               >
                 {item}
-                <span className="ml-8 font-sans text-gold">&middot;</span>
               </span>
             ))}
           </div>

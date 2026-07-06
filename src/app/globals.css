@@ -120,10 +120,40 @@ body {
   animation-play-state: paused;
 }
 
+.ticker-item {
+  position: relative;
+  display: flex;
+  width: clamp(142px, 12vw, 176px);
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ticker-item::after {
+  content: "·";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: var(--gold);
+  font-family: var(--font-open-sans), "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  transform: translate(50%, -50%);
+}
+
 .journal-viewport {
   cursor: grab;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
   touch-action: pan-y;
   user-select: none;
+}
+
+.journal-viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .journal-viewport:active {
@@ -131,6 +161,8 @@ body {
 }
 
 .journal-page {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   width: calc(100% - clamp(28px, 4vw, 56px));
 }
 
