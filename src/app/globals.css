@@ -143,6 +143,9 @@ body {
 }
 
 .journal-viewport {
+  --journal-peek: clamp(28px, 4vw, 56px);
+  --journal-line: rgba(243, 240, 235, 0.18);
+  border-color: var(--journal-line);
   cursor: grab;
   overflow-x: auto;
   overflow-y: hidden;
@@ -160,10 +163,32 @@ body {
   cursor: grabbing;
 }
 
-.journal-page {
+.journal-track {
+  padding-right: var(--journal-peek);
+}
+
+.journal-card-shell {
+  position: relative;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  width: calc(100% - clamp(28px, 4vw, 56px));
+  width: calc((100% - var(--journal-peek)) / 3);
+}
+
+.journal-card-shell::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  z-index: 5;
+  width: 1px;
+  background: var(--journal-line);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .journal-card-shell {
+    width: calc(100% - var(--journal-peek));
+  }
 }
 
 .hero-image-entrance {

@@ -24,7 +24,7 @@ function JournalCardArticle({ card, isDuplicate = false }: JournalCardArticlePro
   return (
     <motion.article
       aria-hidden={isDuplicate}
-      className="group flex aspect-[448/285] min-h-[260px] flex-col overflow-hidden border-b border-r border-[#2A2A2A] bg-background px-[clamp(32px,3.1vw,44px)] py-[clamp(34px,3.35vw,46px)] transition-colors duration-300 hover:border-[#AA8147]/55 hover:bg-[#12110F]"
+      className="group flex h-full min-h-[260px] w-full flex-col overflow-hidden bg-background px-[clamp(32px,3.1vw,44px)] py-[clamp(34px,3.35vw,46px)] transition-colors duration-300 hover:bg-[#12110F]"
       variants={{
         hidden: { opacity: 0, y: 28 },
         visible: {
@@ -74,16 +74,16 @@ export function JournalCarousel({ cards }: JournalCarouselProps) {
   const [isReducedMotion, setIsReducedMotion] = useState(false);
 
   const getPageTarget = useCallback((viewport: HTMLDivElement, pageIndex: number) => {
-    const firstPage = viewport.querySelector<HTMLElement>("[data-journal-page='0']");
-    const page = viewport.querySelector<HTMLElement>(
-      `[data-journal-page="${pageIndex}"]`,
+    const firstCard = viewport.querySelector<HTMLElement>("[data-journal-card='0']");
+    const pageFirstCard = viewport.querySelector<HTMLElement>(
+      `[data-journal-card="${pageIndex * PAGE_SIZE}"]`,
     );
 
-    if (!firstPage || !page) {
+    if (!firstCard || !pageFirstCard) {
       return null;
     }
 
-    return page.offsetLeft - firstPage.offsetLeft;
+    return pageFirstCard.offsetLeft - firstCard.offsetLeft;
   }, []);
 
   const goToPage = useCallback((pageIndex: number, behavior: ScrollBehavior = "smooth") => {
@@ -200,23 +200,21 @@ export function JournalCarousel({ cards }: JournalCarouselProps) {
     >
       <div
         ref={viewportRef}
-        className="journal-viewport overflow-hidden border-l border-t border-[#2A2A2A]"
+        className="journal-viewport border border-[#2A2A2A]"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerUp}
         onScroll={syncActivePageFromScroll}
       >
-        <div className="flex gap-4">
-          {pages.map((page, pageIndex) => (
+        <div className="journal-track flex">
+          {cards.map((card, cardIndex) => (
             <div
-              key={pageIndex}
-              data-journal-page={pageIndex}
-              className="journal-page grid shrink-0 grid-cols-1 md:grid-cols-3"
+              key={card.title}
+              data-journal-card={cardIndex}
+              className="journal-card-shell shrink-0"
             >
-              {page.map((card) => (
-                <JournalCardArticle key={card.title} card={card} />
-              ))}
+              <JournalCardArticle card={card} />
             </div>
           ))}
         </div>
