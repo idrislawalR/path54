@@ -18,10 +18,26 @@ export function ButtonLink({
   variant = "primary",
   ...props
 }: ButtonLinkProps) {
+  const { href, ...linkProps } = props;
+  const classes = `btn-base ${variants[variant]} ${className}`;
+
+  if (typeof href === "string" && href.startsWith("mailto:")) {
+    return (
+      <a
+        className={classes}
+        href={href}
+        {...(linkProps as ComponentPropsWithoutRef<"a">)}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link
-      className={`btn-base ${variants[variant]} ${className}`}
-      {...props}
+      className={classes}
+      href={href}
+      {...linkProps}
     >
       {children}
     </Link>

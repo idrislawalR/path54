@@ -25,10 +25,10 @@ export function FinalCtaSection() {
           </h2>
         </Reveal>
         <Reveal className="mt-12 flex flex-col justify-center gap-4 sm:flex-row" delay={0.28} y={20}>
-          <ButtonLink href="#collective">
+          <ButtonLink href="mailto:hello@path54.com">
             Become a founding member <ArrowIcon />
           </ButtonLink>
-          <ButtonLink href="#portfolio" variant="secondary">
+          <ButtonLink href="mailto:hello@path54.com" variant="secondary">
             Apply for funding
           </ButtonLink>
         </Reveal>

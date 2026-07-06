@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowIcon } from "@/components/ui/arrow-icon";
+import { NewsletterForm } from "@/components/ui/newsletter-form";
 
 const platformLinks = [
   "Mission",
@@ -12,10 +12,10 @@ const platformLinks = [
 ];
 
 const involvementLinks = [
-  "Become a Founding Member",
-  "Apply for Investment",
-  "Partner With Us",
-  "Careers",
+  { label: "Become a Founding Member", href: "mailto:hello@path54.com" },
+  { label: "Apply for Investment", href: "mailto:hello@path54.com" },
+  { label: "Partner With Us", href: "#" },
+  { label: "Careers", href: "#" },
 ];
 
 const socialLinks = {
@@ -49,25 +49,7 @@ export function SiteFooter() {
               Insights from the intersection of football, technology and African
               business.
             </p>
-            <form className="mt-7 flex w-full max-w-[286px] border border-[#2A2A2A] transition-colors duration-300 focus-within:border-[#AA8147]/80" action="#">
-              <label htmlFor="footer-email" className="sr-only">
-                Your email
-              </label>
-              <input
-                id="footer-email"
-                name="email"
-                type="email"
-                placeholder="Your email"
-                className="min-h-[46px] min-w-0 flex-1 bg-transparent px-5 text-[12px] font-normal leading-none text-[#F3F0EB] outline-none placeholder:text-[#8E939C] transition-colors duration-300 focus:placeholder:text-[#F3F0EB]/45"
-              />
-              <button
-                className="min-h-[46px] w-[46px] bg-[#AA8147] text-[18px] text-[#0F0F0F] transition-[background-color,transform] duration-300 hover:bg-[#C49A58] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F3F0EB] active:translate-x-0.5"
-                type="submit"
-                aria-label="Subscribe"
-              >
-                <ArrowIcon className="mx-auto" />
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
 
@@ -86,20 +68,43 @@ export function SiteFooter() {
   );
 }
 
-function FooterColumn({ title, links }: { title: string; links: string[] }) {
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: Array<string | { label: string; href: string }>;
+}) {
   return (
     <div>
       <p className="text-[9px] font-normal uppercase leading-[13.5px] tracking-[2.25px] text-[#AA8147]">
         {title}
       </p>
       <ul className="mt-8 space-y-4 text-[12px] font-medium leading-[18px] text-[#8E939C]">
-        {links.map((link) => (
-          <li key={link}>
-            <Link href="#" className="transition-colors duration-300 hover:text-[#F3F0EB] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#AA8147]">
-              {link}
-            </Link>
-          </li>
-        ))}
+        {links.map((link) => {
+          const item =
+            typeof link === "string" ? { label: link, href: "#" } : link;
+
+          return (
+            <li key={item.label}>
+              {item.href.startsWith("mailto:") ? (
+                <a
+                  href={item.href}
+                  className="transition-colors duration-300 hover:text-[#F3F0EB] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#AA8147]"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="transition-colors duration-300 hover:text-[#F3F0EB] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#AA8147]"
+                >
+                  {item.label}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

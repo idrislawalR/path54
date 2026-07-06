@@ -16,26 +16,26 @@ const tickerItems = [
 
 export function HeroSection() {
   return (
-    <section className="relative flex h-[calc(100dvh+130px)] flex-col overflow-hidden border-b hairline bg-background">
+    <section className="relative flex h-[calc(100dvh+130px)] flex-col overflow-hidden border-b hairline bg-background max-sm:h-[calc(100svh-80px)] max-sm:min-h-[560px]">
       <div className="relative min-h-0 flex-1 overflow-hidden">
         <Image
-          src="/assets/hero-athlete.png"
+          src="/assets/hero-athlete-new.png"
           alt=""
           fill
           preload
           sizes="100vw"
-          className="hero-image-entrance object-cover object-[top_50px_0px] brightness-[1.35] contrast-[1.05] md:object-[30%_top]"
+          className="hero-image-entrance object-cover object-[70%_center] brightness-[0.78] contrast-[1.12] sm:brightness-[1.35] sm:contrast-[1.05] md:object-[30%_top]"
         />
-        <div className="container-shell relative z-10 flex h-full items-center py-[clamp(20px,5vh,64px)]">
-          <div className="max-w-[609px]">
-            <Reveal className="mb-7 flex items-center gap-5 sm:gap-6" delay={0.1} y={16}>
-              <span className="h-px w-12 shrink-0 bg-gold sm:w-12" />
-              <p className="eyebrow  tracking-[3px] text-[0.625rem]">
+        <div className="container-shell relative z-10 flex h-full items-center py-[clamp(20px,5vh,64px)] max-sm:items-start max-sm:pt-[76px]">
+          <div className="max-w-[609px] max-sm:w-full">
+            <Reveal className="mb-7 flex items-center gap-5 sm:gap-6 max-sm:mb-3 max-sm:gap-3" delay={0.1} y={16}>
+              <span className="h-px w-12 shrink-0 bg-gold sm:w-12 max-sm:w-5" />
+              <p className="eyebrow tracking-[3px] text-[0.625rem] max-sm:max-w-[210px] max-sm:text-[8px] max-sm:leading-[10px] max-sm:tracking-[3px]">
                 Est. 2026 &middot; Athlete-led African venture capital
               </p>
             </Reveal>
             <Reveal delay={0.22} duration={0.95} y={42}>
-              <h1 className="display text-[clamp(2.75rem,min(15vw,14vh),145px)] leading-[0.92] text-[#F3F0EB]">
+              <h1 className="display text-[clamp(2.75rem,min(15vw,14vh),145px)] leading-[0.92] text-[#F3F0EB] max-sm:text-[clamp(3.35rem,18vw,4.2rem)] max-sm:leading-[0.93]">
                 Investing
                 <br />
                 in Africa&apos;s
@@ -44,21 +44,21 @@ export function HeroSection() {
               </h1>
             </Reveal>
             <Reveal delay={0.48} y={24}>
-              <p className="mt-9 max-w-[606px] text-[clamp(1.125rem,1.67vw,24px)] leading-[1.4] text-[#F3F0EB]/65">
+              <p className="mt-9 max-w-[606px] text-[clamp(1.125rem,1.67vw,24px)] leading-[1.4] text-[#F3F0EB]/65 max-sm:mt-5 max-sm:max-w-[258px] max-sm:text-[12px] max-sm:leading-[18px]">
                 Bringing together the world&apos;s leading African and African-heritage
                 athletes to invest in the founders, technologies and businesses
                 shaping Africa&apos;s future.
               </p>
             </Reveal>
             <Reveal
-              className="hero-cta-row mt-10 grid grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] gap-2 sm:max-w-[609px] sm:gap-4"
+              className="hero-cta-row mt-10 grid grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] gap-2 sm:max-w-[609px] sm:gap-4 max-sm:mt-7 max-sm:grid-cols-1 max-sm:gap-4"
               delay={0.62}
               y={20}
             >
-              <ButtonLink href="#collective" className="hero-cta">
+              <ButtonLink href="mailto:hello@path54.com" className="hero-cta">
                 Become a founding member <ArrowIcon />
               </ButtonLink>
-              <ButtonLink href="#portfolio" variant="secondary" className="hero-cta">
+              <ButtonLink href="mailto:hello@path54.com" variant="secondary" className="hero-cta">
                 Apply for funding
               </ButtonLink>
             </Reveal>

@@ -120,6 +120,15 @@ body {
   animation-play-state: paused;
 }
 
+.journal-track {
+  animation: journal-scroll 52s linear infinite;
+  will-change: transform;
+}
+
+.journal-card {
+  width: 86vw;
+}
+
 .hero-image-entrance {
   animation: hero-image-rise 1800ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -133,6 +142,10 @@ body {
   .gateway-motion {
     animation: slow-scale 18s ease-in-out infinite alternate;
     will-change: transform;
+  }
+
+  .journal-card {
+    width: calc(min(1344px, calc(100vw - clamp(32px, 6.67vw, 96px))) / 3);
   }
 }
 
@@ -168,6 +181,16 @@ body {
   }
 }
 
+@keyframes journal-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes hero-image-rise {
   from {
     opacity: 0;
@@ -187,6 +210,26 @@ body {
 
   to {
     transform: scale(1.045);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .ticker-track,
+  .journal-track {
+    animation: none;
   }
 }
 

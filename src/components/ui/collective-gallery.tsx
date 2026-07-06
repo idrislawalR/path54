@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 
@@ -101,13 +100,13 @@ export function CollectiveGallery({ subheading, heading }: CollectiveGalleryProp
               long-term commitment to backing ambitious founders, creating
               lasting impact and helping shape Africa&apos;s future.
             </p>
-            <Link
-              href="#collective"
+            <a
+              href="mailto:hello@path54.com"
               className="mt-10 inline-flex max-w-full items-center gap-2 border-b border-[#AA8147] pb-2 text-[11px] font-medium uppercase leading-[16.5px] tracking-[1.98px] text-[#AA8147] transition-colors duration-300 hover:text-[#F3F0EB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#AA8147]"
             >
               <span className="truncate">Become a founding member</span>
               <ArrowIcon />
-            </Link>
+            </a>
           </div>
         </RevealItem>
       </RevealGroup>

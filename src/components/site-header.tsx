@@ -58,7 +58,7 @@ export function SiteHeader() {
         </nav>
 
         <ButtonLink
-          href="#collective"
+          href="mailto:hello@path54.com"
           variant="secondary"
           className="hidden border-gold text-gold sm:inline-flex"
         >
