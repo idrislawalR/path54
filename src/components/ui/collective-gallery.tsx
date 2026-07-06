@@ -88,7 +88,7 @@ export function CollectiveGallery({ subheading, heading }: CollectiveGalleryProp
           className="aspect-[388/426] md:col-span-5 md:aspect-[533/527]"
           sizes="(max-width: 768px) 93vw, (max-width: 1440px) 40vw, 533px"
         />
-        <RevealItem className="flex min-w-0 items-center border border-[#2A2A2A] bg-[#2A2A2A]/30 px-[clamp(28px,4.7vw,64px)] py-12 md:col-span-7 md:aspect-[795/527] md:py-[clamp(28px,4.7vw,64px)]" y={36}>
+        <RevealItem className="flex min-w-0 items-center h-full border border-[#2A2A2A] bg-[#2A2A2A]/30 px-[clamp(28px,4.7vw,64px)] py-12 md:col-span-7 md:aspect-[795/527] md:py-[clamp(28px,4.7vw,64px)]" y={36}>
           <div className="max-w-[560px]">
             <h3 className="display text-[clamp(2.55rem,4.25vw,58px)] leading-[0.95] text-[#F3F0EB]">
               <span className="text-[#AA8147]">World-class athletes.</span>
