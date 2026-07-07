@@ -77,7 +77,7 @@ export function CollectiveGallery({ subheading, heading }: CollectiveGalleryProp
           title="The network"
           className="aspect-[388/426] md:col-span-5 md:aspect-auto md:h-[clamp(520px,51.25vw,738px)]"
           sizes="(max-width: 768px) 93vw, (max-width: 1440px) 37vw, 533px"
-          imageClassName="object-cover object-center bg-black"
+          imageClassName="object-cover object-center"
         />
         <CollectiveImageCard
           src="/assets/collective-card-founders.png"
