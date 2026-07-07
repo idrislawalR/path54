@@ -20,9 +20,7 @@ const involvementLinks = [
 
 const socialLinks = {
   Instagram: "https://www.instagram.com/path54vc",
-  X: "#",
   LinkedIn: "https://www.linkedin.com/company/path54",
-  YouTube: "#",
 };
 
 export function SiteFooter() {
