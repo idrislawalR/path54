@@ -27,7 +27,7 @@ function CollectiveImageCard({
   imageClassName = "object-cover",
 }: CollectiveImageCardProps) {
   return (
-    <RevealItem className={`relative min-w-0 overflow-hidden ${className}`} y={36}>
+    <RevealItem className={`relative isolate min-w-0 overflow-hidden ${className}`} y={36}>
       <Image
         src={src}
         alt={alt}
@@ -36,8 +36,7 @@ function CollectiveImageCard({
         sizes={sizes}
         className={`${imageClassName} transition-transform duration-700 ease-out hover:scale-[1.015]`}
       />
-      <div className="absolute inset-x-0 bottom-0 h-[44%] bg-gradient-to-t from-black via-black/95 via-45% to-black/0" />
-      <div className="absolute inset-x-0 bottom-0 h-[26%] bg-black/70" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[55%] bg-gradient-to-t from-black/95 via-black/55 via-45% to-black/0" />
       <div className="absolute inset-x-0 bottom-0 z-10 p-[clamp(20px,4.4vw,32px)]">
         <p className="text-[10px] font-normal uppercase leading-[15px] tracking-[3px] text-[#AA8147]">
           {eyebrow}
@@ -78,7 +77,7 @@ export function CollectiveGallery({ subheading, heading }: CollectiveGalleryProp
           title="The network"
           className="aspect-[388/426] md:col-span-5 md:aspect-auto md:h-[clamp(520px,51.25vw,738px)]"
           sizes="(max-width: 768px) 93vw, (max-width: 1440px) 37vw, 533px"
-          imageClassName="object-cover object-center"
+          imageClassName="object-cover object-center bg-black"
         />
         <CollectiveImageCard
           src="/assets/collective-card-founders.png"
