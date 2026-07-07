@@ -67,7 +67,7 @@ export function CollectiveGallery({ subheading, heading }: CollectiveGalleryProp
           alt="Founding members in the PATH54 collective"
           eyebrow="Founding members"
           title="The collective"
-          className="aspect-[388/426] md:col-span-7 md:aspect-auto md:h-[clamp(520px,51.25vw,738px)]"
+          className="aspect-[388/426] md:col-span-6 md:aspect-auto md:h-[clamp(520px,51.25vw,738px)]"
           sizes="(max-width: 768px) 93vw, (max-width: 1440px) 54vw, 795px"
         />
         <CollectiveImageCard
@@ -75,7 +75,7 @@ export function CollectiveGallery({ subheading, heading }: CollectiveGalleryProp
           alt="Advisors and partners in the PATH54 network"
           eyebrow="Advisors & partners"
           title="The network"
-          className="aspect-[388/426] md:col-span-5 md:aspect-auto md:h-[clamp(520px,51.25vw,738px)]"
+          className="aspect-[388/426] md:col-span-6 md:aspect-auto md:h-[clamp(520px,51.25vw,738px)]"
           sizes="(max-width: 768px) 93vw, (max-width: 1440px) 37vw, 533px"
           imageClassName="object-cover object-center"
         />
