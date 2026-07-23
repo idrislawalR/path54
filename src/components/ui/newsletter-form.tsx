@@ -26,20 +26,33 @@ export function NewsletterForm() {
     setIsSubmitting(true);
     setMessage("");
 
-    const response = await fetch("/api/newsletter", {
-      method: "POST",
-      body: new FormData(form),
-    });
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        body: new FormData(form),
+      });
+      const data = await response.json().catch(() => null);
 
-    setIsSubmitting(false);
+      if (response.ok) {
+        form.reset();
+        setMessage(
+          data && typeof data.message === "string"
+            ? data.message
+            : "Successful",
+        );
+        return;
+      }
 
-    if (response.ok) {
-      form.reset();
-      setMessage("Successful");
-      return;
+      setMessage(
+        data && typeof data.message === "string"
+          ? data.message
+          : "Please try again",
+      );
+    } catch {
+      setMessage("Please try again");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setMessage("Please try again");
   }
 
   return (
